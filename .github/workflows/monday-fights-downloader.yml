@@ -1,6 +1,10 @@
 name: Monday Fights Downloader
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  schedule:
+      - cron: '45 20 * * MON' # UTC time fifteen minutes after Monday Fight
+      - cron: '35 19 * * FRI'
 
 jobs:
   echo-input:
@@ -12,7 +16,7 @@ jobs:
           node-version: 19
       - name: Use token
         env:
-          TOKEN: ${{ secrets.MONDAY_FIGHTS_TOKEN }}
+          TOKEN: ${{ secrets.MONDAY_FIGHTS_TOKEN }} # we need personal token because default GITHUB_TOKEN never triggers new events so pages would not be rebuilt
         run: |
           # Download Monday Fights
           cd Scripts
