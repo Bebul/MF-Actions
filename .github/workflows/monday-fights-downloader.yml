@@ -10,7 +10,10 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 19
-      - run: |
+      - name: Use token
+        env:
+          TOKEN: ${{ secrets.MONDAY_FIGHTS_TOKEN }}
+        run: |
           # Download Monday Fights
           cd Scripts
           node downloadMF.mjs
