@@ -2,8 +2,8 @@ name: Monday Fights Downloader
 
 on:
   workflow_dispatch:
-  schedule:
-      - cron: '45 20 * * MON' # UTC time fifteen minutes after Monday Fight
+  #schedule:
+  #    - cron: '45 20 * * MON' # UTC time fifteen minutes after Monday Fight
 
 jobs:
   echo-input:
